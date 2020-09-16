@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import './App.scss'
+
+import Header from './components/Header'
+import LeftSideBar from './components/LeftSideBar'
+import Photo from './components/Photo'
+import UserInfo from './components/UserInfo'
+import Counts from './components/Counts'
+
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header/>
+
+      <div className='container'>
+        <div className='wrapper'>
+          <LeftSideBar/>
+
+          <div className='narrow-column'>
+            <Photo/>
+          </div>
+
+          <div className='wide-column'>
+            <UserInfo/>
+            <Counts/>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

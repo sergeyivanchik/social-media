@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.photo {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  background-color: $white;
+  border-radius: 4px;
+
+  &__img {
+    width: 200px;
+    height: 200px;
+    border-radius: 2px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

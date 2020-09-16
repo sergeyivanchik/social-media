@@ -1,0 +1,26 @@
+@import '../../styles/variables.scss';
+
+.header {
+  background-color: $cyan-accent-3;
+
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__emblem {
+    font-size: 34px;
+    padding: 5px 0;
+    color: $white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

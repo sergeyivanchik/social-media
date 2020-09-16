@@ -1,0 +1,83 @@
+@import '../../styles/variables.scss';
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px 0;
+  border-radius: 4px 4px 0 0;
+  background-color: $white;
+
+  &__wrapper {
+    width: 510px;
+  }
+
+  &__panel {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $grey-lighten-3;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 6px;
+  }
+
+  &__name {
+    font-size: 19px;
+    line-height: 25px;
+    font-weight: 400;
+  }
+
+  &__online {
+    font-size: 12px;
+    font-weight: 400;
+    color: $grey;
+  }
+
+  &__status {
+    width: 100%;
+    line-height: 16px;
+    font-size: 13px;
+    padding: 4px 6px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cyan-lighten-4;
+    }
+  }
+
+  &__short-info {
+    padding-top: 10px;
+    display: flex;
+  }
+
+  &__birthday {
+    width: 165px;
+    font-size: 13px;
+    color: $grey;
+  }
+
+  &__birthday-date {
+    font-size: 13px;
+    color: $blue;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__show-more {
+    margin-top: 10px;
+    border-radius: 4px;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 13px;
+    color: $blue;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $cyan-lighten-4;
+    }
+  }
+}

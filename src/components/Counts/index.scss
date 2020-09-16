@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.counts {
+  background-color: $white;
+  border-radius: 0 0 4px 4px;
+  text-align: center;
+  border-top: 1px solid $grey-lighten-3;
+  display: flex;
+  justify-content: center;
+}

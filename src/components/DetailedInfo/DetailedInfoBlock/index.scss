@@ -1,0 +1,33 @@
+@import '../../../styles/variables.scss';
+
+.detailed-info-block {
+  border-top: 1px solid $grey-lighten-3;
+  padding-bottom: 29px;
+
+  &__top {
+    margin-top: -11px;
+    display: flex;
+    justify-content: space-between;
+
+    &:hover {
+      .detailed-info-block__edit {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 13px;
+    color: $black;
+  }
+
+  &__edit {
+    color: $grey;
+    font-size: 13px;
+    opacity: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
