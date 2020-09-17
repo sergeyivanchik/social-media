@@ -7,6 +7,7 @@ import LeftSideBar from './components/LeftSideBar'
 import Photo from './components/Photo'
 import UserInfo from './components/UserInfo'
 import Counts from './components/Counts'
+import Friends from './components/Friends'
 
 
 const App: React.FC = () => {
@@ -20,6 +21,7 @@ const App: React.FC = () => {
 
           <div className='narrow-column'>
             <Photo/>
+            <Friends/>
           </div>
 
           <div className='wide-column'>

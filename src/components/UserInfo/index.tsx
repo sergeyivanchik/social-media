@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 
 import './index.scss'
+
 import DetailedInfo from '../DetailedInfo'
+import InfoItem from '../InfoItem'
 
 
 const UserInfo: React.FC = () => {
@@ -31,13 +33,9 @@ const UserInfo: React.FC = () => {
           </div>
 
           <div className='user-info__short-info'>
-            <div className='user-info__birthday'>
-              День рождения:
-            </div>
-
-            <div className='user-info__birthday-date'>
-              23 марта 1994 г.
-            </div>
+            <InfoItem label='День рождения' value='23 марта 1994 г.' isLink={true}/>
+            <InfoItem label='Семейное положение' value='не женат' isLink={true}/>
+            <InfoItem label='Сайт' value='сайтсайтсайт' isLink={false}/>
           </div>
 
           <div className='user-info__show-more' onClick={clickHandler}>

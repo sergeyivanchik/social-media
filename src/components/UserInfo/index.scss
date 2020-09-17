@@ -21,17 +21,16 @@
     justify-content: space-between;
     align-items: center;
     padding-left: 6px;
+    font-weight: 400;
   }
 
   &__name {
     font-size: 19px;
     line-height: 25px;
-    font-weight: 400;
   }
 
   &__online {
     font-size: 12px;
-    font-weight: 400;
     color: $grey;
   }
 
@@ -39,6 +38,7 @@
     width: 100%;
     line-height: 16px;
     font-size: 13px;
+    font-weight: 400;
     padding: 4px 6px;
 
     &:hover {
@@ -50,21 +50,7 @@
   &__short-info {
     padding-top: 10px;
     display: flex;
-  }
-
-  &__birthday {
-    width: 165px;
-    font-size: 13px;
-    color: $grey;
-  }
-
-  &__birthday-date {
-    font-size: 13px;
-    color: $blue;
-
-    &:hover {
-      cursor: pointer;
-    }
+    flex-direction: column;
   }
 
   &__show-more {
@@ -74,6 +60,7 @@
     padding: 5px 0;
     font-size: 13px;
     color: $blue;
+    font-weight: 400;
 
     &:hover {
       cursor: pointer;

@@ -1,0 +1,21 @@
+@import '../../styles/variables.scss';
+
+.info-item {
+  padding-top: 5px;
+  display: flex;
+  font-size: 13px;
+  font-weight: 400;
+
+  &__label {
+    width: 165px;
+    color: $grey;
+  }
+
+  &__values {
+    display: flex;
+  }
+
+  &__value {
+    display: flex;
+  }
+}

@@ -5,6 +5,7 @@
   align-items: center;
   border-radius: 2px;
   padding: 5px 0 5px 7px;
+  color: $cyan-darken-3;
 
   &:hover {
     cursor: pointer;
@@ -13,12 +14,11 @@
 
   &__icon {
     font-size: 20px;
-    color: $cyan-darken-3;
     margin-right: 10px;
   }
 
   &__title {
     font-size: 12px;
-    color: $cyan-darken-3;
+    font-weight: 400;
   }
 }

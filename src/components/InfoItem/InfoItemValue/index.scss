@@ -1,0 +1,16 @@
+@import '../../../styles/variables.scss';
+
+.info-item-value {
+  font-size: 13px;
+  font-weight: 400;
+  color: $black;
+
+  &__link {
+    color: $blue;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
