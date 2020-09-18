@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 
 import './index.scss'
 
 import DetailedInfo from '../DetailedInfo'
 import InfoItem from '../InfoItem'
 
+import { getUserInfo } from '../../store/users/selectors'
+import { getBirthday } from '../../helpers'
+
 
 const UserInfo: React.FC = () => {
   const [isShow, setIsShow] = useState<boolean>(false)
+
+  const userInfo = useSelector(getUserInfo)
 
   const clickHandler = (): void => {
     setIsShow(prev => !prev)
@@ -20,22 +26,37 @@ const UserInfo: React.FC = () => {
           <div className='user-info__panel'>
             <div className='user-info__top'>
               <span className='user-info__name'>
-                Сергей Иванчик
+                {userInfo.name} {userInfo.surname}
               </span>
               <span className='user-info__online'>
                 заходил 10 минут назад
               </span>
             </div>
 
-            <div className='user-info__status'>
-              123
+            <div className={`user-info__status ${!userInfo.status && 'user-info__status_empty'}`}>
+              {userInfo.status || 'изменить статус'}
             </div>
           </div>
 
           <div className='user-info__short-info'>
-            <InfoItem label='День рождения' value='23 марта 1994 г.' isLink={true}/>
-            <InfoItem label='Семейное положение' value='не женат' isLink={true}/>
-            <InfoItem label='Сайт' value='сайтсайтсайт' isLink={false}/>
+            {
+              userInfo.birthday &&
+              <InfoItem
+                label='День рождения'
+                value={getBirthday(userInfo.birthday) || ''}
+                isLink={true}
+              />
+            }
+            <InfoItem
+              label='Семейное положение'
+              value={userInfo.marital_status}
+              isLink={true}
+            />
+            <InfoItem
+              label='Сайт'
+              value={userInfo.site}
+              isLink={false}
+            />
           </div>
 
           <div className='user-info__show-more' onClick={clickHandler}>

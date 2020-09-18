@@ -45,6 +45,10 @@
       cursor: pointer;
       background-color: $cyan-lighten-4;
     }
+
+    &_empty {
+      color: $grey;
+    }
   }
 
   &__short-info {

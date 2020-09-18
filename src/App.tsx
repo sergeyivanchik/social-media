@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import './App.scss'
 
@@ -8,9 +9,25 @@ import Photo from './components/Photo'
 import UserInfo from './components/UserInfo'
 import Counts from './components/Counts'
 import Friends from './components/Friends'
+import Preloader from './components/Preloader'
+
+import { getUserById } from './store/users/actions'
+import { getLoading } from './store/users/selectors'
 
 
 const App: React.FC = () => {
+  const dispatch = useDispatch()
+
+  const loading = useSelector(getLoading)
+
+  useEffect(() => {
+    dispatch(getUserById('5f63bd4942f5761b1094f485'))
+  }, [])
+
+  if (loading) {
+    return <Preloader/>
+  }
+
   return (
     <>
       <Header/>
