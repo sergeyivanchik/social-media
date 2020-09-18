@@ -107,3 +107,28 @@ export const getContactData = createSelector(
     skype: currentUser.skype
   })
 )
+
+type PersonalInformation = {
+  activity?: string
+  interests?: string
+  favourite_music?: string
+  favourite_films?: string
+  favourite_teleshow?: string
+  favourite_books?: string
+  favourite_quotes?: string
+  about_me?: string
+}
+
+export const getPersonalInformation = createSelector(
+  selectUser,
+  (currentUser): PersonalInformation => ({
+    activity: currentUser.activity,
+    interests: currentUser.interests,
+    favourite_music: currentUser.favourite_music,
+    favourite_films: currentUser.favourite_films,
+    favourite_teleshow: currentUser.favourite_teleshow,
+    favourite_books: currentUser.favourite_books,
+    favourite_quotes: currentUser.favourite_quotes,
+    about_me: currentUser.about_me
+  })
+)

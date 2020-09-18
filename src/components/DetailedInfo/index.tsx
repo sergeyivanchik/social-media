@@ -6,12 +6,17 @@ import './index.scss'
 import DetailedInfoBlock from './DetailedInfoBlock'
 import InfoItem from '../InfoItem'
 
-import { getBasicInformation, getContactData } from '../../store/users/selectors'
+import {
+  getBasicInformation,
+  getContactData,
+  getPersonalInformation
+} from '../../store/users/selectors'
 
 
 const DetailedInfo: React.FC = () => {
   const basicInfo = useSelector(getBasicInformation)
   const contactData = useSelector(getContactData)
+  const personalInformation = useSelector(getPersonalInformation)
 
   return (
     <div className='detailed-info'>
@@ -76,42 +81,42 @@ const DetailedInfo: React.FC = () => {
       <DetailedInfoBlock title='Личная информация'>
         <InfoItem
           label='Деятельность'
-          value='деятельность'
+          value={personalInformation.activity}
           isLink={false}
         />
         <InfoItem
           label='Интересы'
-          value='интересы'
+          value={personalInformation.interests}
           isLink={false}
         />
         <InfoItem
           label='Любимая музыка'
-          value='музыка'
+          value={personalInformation.favourite_music}
           isLink={false}
         />
         <InfoItem
           label='Любимые фильмы'
-          value='фильмы'
+          value={personalInformation.favourite_films}
           isLink={false}
         />
         <InfoItem
           label='Любимые телешоу'
-          value='телешоу'
+          value={personalInformation.favourite_teleshow}
           isLink={false}
         />
         <InfoItem
           label='Любимые книги'
-          value='книги'
+          value={personalInformation.favourite_books}
           isLink={false}
         />
         <InfoItem
           label='Любимые цитаты'
-          value='цитаты'
+          value={personalInformation.favourite_quotes}
           isLink={false}
         />
         <InfoItem
           label='О себе'
-          value='человек'
+          value={personalInformation.about_me}
           isLink={false}
         />
       </DetailedInfoBlock>

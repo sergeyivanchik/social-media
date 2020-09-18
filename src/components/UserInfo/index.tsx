@@ -39,14 +39,11 @@ const UserInfo: React.FC = () => {
           </div>
 
           <div className='user-info__short-info'>
-            {
-              userInfo.birthday &&
-              <InfoItem
-                label='День рождения'
-                value={getBirthday(userInfo.birthday) || ''}
-                isLink={true}
-              />
-            }
+            <InfoItem
+              label='День рождения'
+              value={getBirthday(userInfo.birthday) || ''}
+              isLink={true}
+            />
             <InfoItem
               label='Семейное положение'
               value={userInfo.marital_status}

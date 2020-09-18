@@ -20,6 +20,7 @@ export interface IUser {
   interests?: string,
   favourite_music?: string,
   favourite_teleshow?: string,
+  favourite_films?: string,
   favourite_books?: string,
   favourite_quotes?: string,
   about_me?: string,

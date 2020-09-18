@@ -33,6 +33,7 @@ const Friends: React.FC = () => {
                   name={elem.name || ''}
                   surname={elem.surname || ''}
                   photo={avatar?.photo || ''}
+                  id={elem.id || ''}
                 />
               )
             })
@@ -50,6 +51,7 @@ const Friends: React.FC = () => {
                   name={elem.name || ''}
                   surname={elem.surname || ''}
                   photo={avatar?.photo || ''}
+                  id={elem.id || ''}
                 />
               )
             })
