@@ -3,10 +3,16 @@ import { IUser } from './types'
 
 
 const user = (state: { users: { data: IUser } }): IUser  => state.users.data
+const currentUser = (state: { users: { me: IUser } }): IUser  => state.users.me
 const loading = (state: { users: {loading: boolean } }): boolean => state.users.loading
 
 export const selectUser = createSelector(
   user,
+  (currentUser): IUser => currentUser
+)
+
+export const selectCurrentUser = createSelector(
+  currentUser,
   (currentUser): IUser => currentUser
 )
 
@@ -16,7 +22,8 @@ type MainUserInfo = {
   status?: string
   site?: string
   birthday?: number
-  marital_status?: string
+  marital_status?: string,
+  online: boolean
 }
 
 export const getUserInfo = createSelector(
@@ -27,7 +34,8 @@ export const getUserInfo = createSelector(
     status: currentUser.status,
     site: currentUser.site,
     birthday: currentUser.birthday,
-    marital_status: currentUser.marital_status
+    marital_status: currentUser.marital_status,
+    online: currentUser.online
   })
 )
 
@@ -36,8 +44,18 @@ export const getFriends = createSelector(
   (currentUser): IUser[] => currentUser.friends || []
 )
 
+export const getOnlineFriends = createSelector(
+  selectUser,
+  (currentUser): IUser[] => currentUser.friends?.filter(elem => elem.online) || []
+)
+
 export const getFriendCount = createSelector(
   getFriends,
+  (friends): number => friends?.length || 0
+)
+
+export const getOnlineFriendCount = createSelector(
+  getOnlineFriends,
   (friends): number => friends?.length || 0
 )
 
@@ -56,6 +74,11 @@ export const getPhotos = createSelector(
   (currentUser): Photo[] => currentUser?.photos || []
 )
 
+export const getCurrentUserPhotos = createSelector(
+  selectCurrentUser,
+  (currentUser): Photo[] => currentUser?.photos || []
+)
+
 export const getPhotosCount = createSelector(
   getPhotos,
   (photos): number => photos?.length || 0
@@ -63,6 +86,15 @@ export const getPhotosCount = createSelector(
 
 export const getAvatar = createSelector(
   getPhotos,
+  (photos): string => {
+    const avatar = photos.find(elem => elem.isAvatar)
+
+    return avatar?.photo || ''
+  }
+)
+
+export const getCurrentUserAvatar = createSelector(
+  getCurrentUserPhotos,
   (photos): string => {
     const avatar = photos.find(elem => elem.isAvatar)
 

@@ -5,11 +5,13 @@ import SideBarItem from './SideBarItem'
 
 
 const LeftSideBar: React.FC = () => {
+  const me = localStorage.getItem('me') || '/'
+
   return (
     <div className='left-side-bar'>
-      <SideBarItem title='Моя страница' icon='home'/>
-      <SideBarItem title='Сообщения' icon='forum'/>
-      <SideBarItem title='Друзья' icon='person'/>
+      <SideBarItem title='Моя страница' icon='home' link={me}/>
+      <SideBarItem title='Сообщения' icon='forum' link={me}/>
+      <SideBarItem title='Друзья' icon='person' link={me}/>
     </div>
   )
 }

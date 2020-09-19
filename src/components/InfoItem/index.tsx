@@ -18,7 +18,6 @@ const InfoItem: React.FC<IProps> = ({ label, value, values, isLink }) => {
   if (!value && !values?.length) {
     return null
   }
-  console.log('value values', value, values);
 
   return (
     <div className='info-item'>

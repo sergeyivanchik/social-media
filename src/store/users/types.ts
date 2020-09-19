@@ -30,17 +30,20 @@ export interface IUser {
     photo: string,
     isAvatar: boolean
   }[]
-  status?: string
+  status?: string,
+  online: boolean
 }
 
 export enum UsersActionTypes {
   GET_USER_BY_ID = '@@users/GET_USER_BY_ID',
+  GET_CURRENT_USER = '@@users/GET_CURRENT_USER',
   FETCH_FAILURE = '@@users/FETCH_FAILURE',
   SHOW_PRELOADER = '@@users/SHOW_PRELOADER',
   HIDE_PRELOADER = '@@users/HIDE_PRELOADER'
 }
 
 export interface UsersState {
+  readonly me: IUser
   readonly data: IUser
   readonly errors?: string
   readonly loading: boolean

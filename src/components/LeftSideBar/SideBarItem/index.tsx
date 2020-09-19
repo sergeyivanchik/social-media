@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import './index.scss'
 
@@ -6,14 +7,17 @@ import './index.scss'
 interface IProps {
   title: string
   icon: string
+  link: string
 }
 
-const SideBarItem: React.FC<IProps> = ({ title, icon }) => {
+const SideBarItem: React.FC<IProps> = ({ title, icon, link }) => {
   return (
-    <div className='side-bar-item'>
-      <i className='material-icons side-bar-item__icon'>{icon}</i>
-      <span className='side-bar-item__title'>{title}</span>
-    </div>
+    <Link to={link}>
+      <div className='side-bar-item'>
+        <i className='material-icons side-bar-item__icon'>{icon}</i>
+        <span className='side-bar-item__title'>{title}</span>
+      </div>
+    </Link>
   )
 }
 

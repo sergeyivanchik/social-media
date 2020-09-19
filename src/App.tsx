@@ -7,7 +7,6 @@ import Header from './components/Header'
 import User from './pages/User'
 
 
-
 const App: React.FC = () => {
   return (
     <BrowserRouter>

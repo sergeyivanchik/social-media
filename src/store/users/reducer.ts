@@ -2,7 +2,12 @@ import { Reducer } from 'redux';
 import { UsersState, UsersActionTypes } from './types'
 
 const initialState: UsersState = {
-  data: {},
+  me: {
+    online: false
+  },
+  data: {
+    online: false
+  },
   loading: false,
   errors: ''
 }
@@ -11,6 +16,9 @@ export const usersReducer: Reducer<UsersState> = (state = initialState, action) 
   switch(action.type) {
     case UsersActionTypes.GET_USER_BY_ID:
       return { ...state, data: action.payload }
+
+    case UsersActionTypes.GET_CURRENT_USER:
+      return { ...state, me: action.payload }
 
     case UsersActionTypes.FETCH_FAILURE:
       return { ...state, errors: action.payload }

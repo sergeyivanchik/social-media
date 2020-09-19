@@ -55,21 +55,29 @@ const DetailedInfo: React.FC = () => {
       </DetailedInfoBlock>
 
       <DetailedInfoBlock title='Контактная информация'>
-        <InfoItem
-          label='Моб. телефон'
-          value={contactData.mobile_phone}
-          isLink={false}
-        />
-        <InfoItem
-          label='Доп. телефон'
-          value={contactData.additional_phone}
-          isLink={false}
-        />
-        <InfoItem
-          label='Skype'
-          value={contactData.skype}
-          isLink={true}
-        />
+        {
+          contactData.additional_phone || contactData.mobile_phone || contactData.skype
+            ? <>
+                <InfoItem
+                  label='Моб. телефон'
+                  value={contactData.mobile_phone}
+                  isLink={false}
+                />
+                <InfoItem
+                  label='Доп. телефон'
+                  value={contactData.additional_phone}
+                  isLink={false}
+                />
+                <InfoItem
+                  label='Skype'
+                  value={contactData.skype}
+                  isLink={true}
+                />
+              </>
+            : <div className='no-information'>
+                Информация отсутствует
+              </div>
+        }
       </DetailedInfoBlock>
 
       <DetailedInfoBlock title='Образование'>
@@ -79,46 +87,62 @@ const DetailedInfo: React.FC = () => {
       </DetailedInfoBlock>
 
       <DetailedInfoBlock title='Личная информация'>
-        <InfoItem
-          label='Деятельность'
-          value={personalInformation.activity}
-          isLink={false}
-        />
-        <InfoItem
-          label='Интересы'
-          value={personalInformation.interests}
-          isLink={false}
-        />
-        <InfoItem
-          label='Любимая музыка'
-          value={personalInformation.favourite_music}
-          isLink={false}
-        />
-        <InfoItem
-          label='Любимые фильмы'
-          value={personalInformation.favourite_films}
-          isLink={false}
-        />
-        <InfoItem
-          label='Любимые телешоу'
-          value={personalInformation.favourite_teleshow}
-          isLink={false}
-        />
-        <InfoItem
-          label='Любимые книги'
-          value={personalInformation.favourite_books}
-          isLink={false}
-        />
-        <InfoItem
-          label='Любимые цитаты'
-          value={personalInformation.favourite_quotes}
-          isLink={false}
-        />
-        <InfoItem
-          label='О себе'
-          value={personalInformation.about_me}
-          isLink={false}
-        />
+        {
+          personalInformation.about_me ||
+          personalInformation.activity ||
+          personalInformation.favourite_books ||
+          personalInformation.favourite_films ||
+          personalInformation.favourite_music ||
+          personalInformation.favourite_quotes ||
+          personalInformation.favourite_teleshow ||
+          personalInformation.interests
+          ? <>
+              <InfoItem
+                label='Деятельность'
+                value={personalInformation.activity}
+                isLink={false}
+              />
+              <InfoItem
+                label='Интересы'
+                value={personalInformation.interests}
+                isLink={false}
+              />
+              <InfoItem
+                label='Любимая музыка'
+                value={personalInformation.favourite_music}
+                isLink={false}
+              />
+              <InfoItem
+                label='Любимые фильмы'
+                value={personalInformation.favourite_films}
+                isLink={false}
+              />
+              <InfoItem
+                label='Любимые телешоу'
+                value={personalInformation.favourite_teleshow}
+                isLink={false}
+              />
+              <InfoItem
+                label='Любимые книги'
+                value={personalInformation.favourite_books}
+                isLink={false}
+              />
+              <InfoItem
+                label='Любимые цитаты'
+                value={personalInformation.favourite_quotes}
+                isLink={false}
+              />
+              <InfoItem
+                label='О себе'
+                value={personalInformation.about_me}
+                isLink={false}
+              />
+            </>
+          : <div className='no-information'>
+              Информация отсутствует
+            </div>
+
+        }
       </DetailedInfoBlock>
     </div>
   )

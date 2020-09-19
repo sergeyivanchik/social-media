@@ -29,7 +29,11 @@ const UserInfo: React.FC = () => {
                 {userInfo.name} {userInfo.surname}
               </span>
               <span className='user-info__online'>
-                заходил 10 минут назад
+                {
+                  userInfo.online
+                    ? 'online'
+                    : 'offline'
+                }
               </span>
             </div>
 
