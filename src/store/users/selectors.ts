@@ -23,7 +23,7 @@ type MainUserInfo = {
   site?: string
   birthday?: number
   marital_status?: string,
-  online: boolean
+  online: string
 }
 
 export const getUserInfo = createSelector(
@@ -46,7 +46,7 @@ export const getFriends = createSelector(
 
 export const getOnlineFriends = createSelector(
   selectUser,
-  (currentUser): IUser[] => currentUser.friends?.filter(elem => elem.online) || []
+  (currentUser): IUser[] => currentUser.friends?.filter(elem => elem.online === 'online') || []
 )
 
 export const getFriendCount = createSelector(

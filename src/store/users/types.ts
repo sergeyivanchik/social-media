@@ -1,5 +1,5 @@
 export interface IUser {
-  id?: string,
+  _id?: string,
   name?: string,
   surname?: string,
   sex?: string,
@@ -31,7 +31,7 @@ export interface IUser {
     isAvatar: boolean
   }[]
   status?: string,
-  online: boolean
+  online: string
 }
 
 export enum UsersActionTypes {

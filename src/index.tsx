@@ -9,11 +9,14 @@ import './index.scss'
 
 import App from './App'
 
+import { socketConfig } from './configs/socket'
+
 import rootReducer from './store/rootReducer'
 import * as serviceWorker from './serviceWorker'
 
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
+socketConfig(store.dispatch)
 
 ReactDOM.render(
   <Provider store={store}>

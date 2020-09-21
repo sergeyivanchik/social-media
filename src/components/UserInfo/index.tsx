@@ -7,7 +7,7 @@ import DetailedInfo from '../DetailedInfo'
 import InfoItem from '../InfoItem'
 
 import { getUserInfo } from '../../store/users/selectors'
-import { getBirthday } from '../../helpers'
+import { getBirthday, getOnlineDate } from '../../helpers'
 
 
 const UserInfo: React.FC = () => {
@@ -30,9 +30,9 @@ const UserInfo: React.FC = () => {
               </span>
               <span className='user-info__online'>
                 {
-                  userInfo.online
-                    ? 'online'
-                    : 'offline'
+                  userInfo.online === 'online'
+                    ? 'онлайн'
+                    : getOnlineDate(+userInfo.online) || ''
                 }
               </span>
             </div>

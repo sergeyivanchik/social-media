@@ -36,11 +36,11 @@ const Friends: React.FC = () => {
 
               return (
                 <Friend
-                  key={elem.id}
+                  key={elem._id}
                   name={elem.name || ''}
                   surname={elem.surname || ''}
                   photo={avatar?.photo || ''}
-                  id={elem.id || ''}
+                  id={elem._id || ''}
                 />
               )
             })
@@ -54,11 +54,11 @@ const Friends: React.FC = () => {
 
               return (
                 <Friend
-                  key={elem.id}
+                  key={elem._id}
                   name={elem.name || ''}
                   surname={elem.surname || ''}
                   photo={avatar?.photo || ''}
-                  id={elem.id || ''}
+                  id={elem._id || ''}
                 />
               )
             })
@@ -86,11 +86,11 @@ const Friends: React.FC = () => {
 
                   return (
                     <Friend
-                      key={elem.id}
+                      key={elem._id}
                       name={elem.name || ''}
                       surname={elem.surname || ''}
                       photo={avatar?.photo || ''}
-                      id={elem.id || ''}
+                      id={elem._id || ''}
                     />
                   )
                 })
@@ -104,11 +104,11 @@ const Friends: React.FC = () => {
 
                   return (
                     <Friend
-                      key={elem.id}
+                      key={elem._id}
                       name={elem.name || ''}
                       surname={elem.surname || ''}
                       photo={avatar?.photo || ''}
-                      id={elem.id || ''}
+                      id={elem._id || ''}
                     />
                   )
                 })

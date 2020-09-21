@@ -3,10 +3,10 @@ import { UsersState, UsersActionTypes } from './types'
 
 const initialState: UsersState = {
   me: {
-    online: false
+    online: ''
   },
   data: {
-    online: false
+    online: ''
   },
   loading: false,
   errors: ''

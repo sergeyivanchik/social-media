@@ -1,0 +1,126 @@
+@import '../../styles/variables.scss';
+
+.new-message {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $opacity-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 502px;
+  }
+
+  &__top {
+    height: 54px;
+    background-color: $cyan-accent-3;
+    border-radius: 4px 4px 0 0;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 14px;
+    font-weight: 400;
+    color: $white;
+  }
+
+  &__close {
+    color: $grey;
+
+    &:hover {
+      cursor: pointer;
+      color: $white;
+    }
+  }
+
+  &__bottom {
+    padding: 20px 25px;
+    background-color: $cyan-lighten-5;
+  }
+
+  &__user-block {
+    display: flex;
+  }
+
+  &__user-avatar {
+    width: 50px;
+    height: 50px;
+    margin-right: 13px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  &__user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__user-name {
+    padding: 6px 0 4px 0;
+    color: $cyan-accent-3;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  &__user-online {
+    color: $grey;
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  &__text-wrapper {
+    margin: 13px 0 10px 0;
+
+    textarea {
+      background-color: $white;
+      padding: 5px;
+      border: 1px solid $grey;
+      resize: none;
+      border-radius: 3px;
+      font-size: 13px;
+      color: $black;
+      font-weight: 400;
+      height: 180px;
+
+      &::-webkit-scrollbar {
+        width: 0
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__button-block {
+    margin-top: 16px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__button {
+    padding: 7px 16px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    color: $white;
+    background-color: $cyan-accent-3;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

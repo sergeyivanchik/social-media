@@ -8,6 +8,7 @@ import UserInfo from '../components/UserInfo'
 import Counts from '../components/Counts'
 import Friends from '../components/Friends'
 import Preloader from '../components/Preloader'
+import Photos from '../components/Photos';
 
 import { getUserById } from '../store/users/actions'
 import { getLoading } from '../store/users/selectors'
@@ -15,9 +16,7 @@ import { getLoading } from '../store/users/selectors'
 
 const User: React.FC = () => {
   const dispatch = useDispatch()
-
   const { id } = useParams()
-
   const loading = useSelector(getLoading)
 
   useEffect(() => {
@@ -40,6 +39,7 @@ const User: React.FC = () => {
       <div className='wide-column'>
         <UserInfo/>
         <Counts/>
+        <Photos/>
       </div>
     </>
   );

@@ -1,0 +1,46 @@
+@import '../../styles/variables.scss';
+
+.photos {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px 0;
+  border-radius: 4px 4px 0 0;
+  background-color: $white;
+
+  &__wrapper {
+    width: 510px;
+  }
+
+  &__panel {
+    border-bottom: 1px solid $grey-lighten-3;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    padding-left: 6px;
+    font-weight: 400;
+  }
+
+  &__title {
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: 400;
+    color: $black;
+  }
+
+  &__count {
+    margin-left: 6px;
+    font-size: 13px;
+    line-height: 25px;
+    font-weight: 400;
+    color: $grey;
+  }
+
+  &__bottom {
+    padding: 13px 0 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+}
