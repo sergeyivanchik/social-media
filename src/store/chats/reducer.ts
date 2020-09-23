@@ -4,7 +4,8 @@ import { ChatsState, ChatsActionTypes } from './types'
 const initialState: ChatsState = {
   data: [],
   loading: false,
-  errors: ''
+  errors: '',
+  typing: []
 }
 
 export const chatsReducer: Reducer<ChatsState> = (state = initialState, action) => {
@@ -23,6 +24,13 @@ export const chatsReducer: Reducer<ChatsState> = (state = initialState, action) 
 
     case ChatsActionTypes.HIDE_PRELOADER:
       return { ...state, loading: false }
+
+    case ChatsActionTypes.TYPING_MESSAGE:
+      return { ...state, typing: [...state.typing, action.payload] }
+
+    case ChatsActionTypes.REMOVE_TYPING_MESSAGE:
+      const newTyping = state.typing.filter(elem => elem !== action.payload)
+      return { ...state, typing: newTyping || []}
 
     default:
       return state

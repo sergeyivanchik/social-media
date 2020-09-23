@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 
 import { devURL } from '../store/api'
-import { getCurrentUserChats } from '../store/chats/actions'
+import { getCurrentUserChats, typing } from '../store/chats/actions'
 
 
 const socket = io(devURL)
@@ -21,6 +21,10 @@ const socketConfig = (dispatch : any) => {
     dispatch(getCurrentUserChats())
   })
 
+  socket.on('typingMessage', (data: string) => {
+    dispatch(typing(data))
+  })
+
   return socket
 };
 
@@ -34,5 +38,8 @@ type Message = {
 
 export const sendMessage = (data: Message) =>
   socket.emit('sendMessage', {...data})
+
+export const typingMessage = (from: string, to: string) =>
+  socket.emit('typingMessage', {from, to})
 
 export { socketConfig }

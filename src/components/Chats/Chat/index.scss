@@ -3,12 +3,12 @@
 .chat {
   width: 100%;
   padding-left: 20px;
-  // padding-right: 15px;
   height: 71px;
   display: flex;
 
   &:hover {
     cursor: pointer;
+    background-color: $cyan-lighten-5;
   }
 
   &__photo {

@@ -25,7 +25,24 @@ export const getCurrentUserChats = () => {
 
       // dispatch(hidePreloader())
     } catch (error) {
-      // dispatch(fetchFailure(error))
+      dispatch(fetchFailure(error))
+    }
+  }
+}
+
+const typingMessage = (userId: string) =>
+  action(ChatsActionTypes.TYPING_MESSAGE, userId)
+
+const removeTypingMessage = (userId: string) =>
+  action(ChatsActionTypes.REMOVE_TYPING_MESSAGE, userId)
+
+export const typing = (userId: string) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      dispatch(typingMessage(userId))
+      setTimeout(() => dispatch(removeTypingMessage(userId)), 3000)
+    } catch(error) {
+      dispatch(fetchFailure(error))
     }
   }
 }

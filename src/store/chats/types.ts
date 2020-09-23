@@ -17,8 +17,9 @@ export interface IChats {
 
 export enum ChatsActionTypes {
   GET_CURRENT_USER_CHATS = '@@chats/GET_CURRENT_USER_CHATS',
-  // GET_CURRENT_USER = '@@users/GET_CURRENT_USER',
   FETCH_FAILURE = '@@chats/FETCH_FAILURE',
+  TYPING_MESSAGE = '@@chats/TYPING_MESSAGE',
+  REMOVE_TYPING_MESSAGE = '@@chats/REMOVE_TYPING_MESSAGE',
   SHOW_PRELOADER = '@@users/SHOW_PRELOADER',
   HIDE_PRELOADER = '@@users/HIDE_PRELOADER'
 }
@@ -28,4 +29,5 @@ export interface ChatsState {
   readonly data: IChats[]
   readonly errors?: string
   readonly loading: boolean
+  readonly typing: string[]
 }

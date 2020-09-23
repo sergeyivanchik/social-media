@@ -7,7 +7,7 @@ import emptyAvatar from '../../images/empty_avatar.png'
 
 import { selectUser, getAvatar } from '../../store/users/selectors'
 import { getOnlineDate } from '../../helpers'
-import { sendMessage } from '../../configs/socket'
+import { sendMessage, typingMessage } from '../../configs/socket'
 
 
 interface IProps {
@@ -67,7 +67,7 @@ const NewMessage: React.FC<IProps> = ({ close }) => {
           </div>
 
           <div className='new-message__text-wrapper'>
-            <textarea ref={ref}/>
+            <textarea ref={ref} onChange={() => typingMessage(me, user._id || '')}/>
           </div>
 
           <div className='new-message__button-block'>

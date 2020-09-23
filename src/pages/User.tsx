@@ -39,8 +39,10 @@ const User: React.FC = () => {
       </div>
 
       <div className='wide-column'>
-        <UserInfo/>
-        <Counts/>
+        <div style={{boxShadow: '0 1px 0 0 #b2ebf2, 0 0 0 1px #b2ebf2'}}>
+          <UserInfo/>
+          <Counts/>
+        </div>
         <Photos/>
       </div>
     </>
