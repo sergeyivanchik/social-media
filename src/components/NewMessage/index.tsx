@@ -7,6 +7,7 @@ import emptyAvatar from '../../images/empty_avatar.png'
 
 import { selectUser, getAvatar } from '../../store/users/selectors'
 import { getOnlineDate } from '../../helpers'
+import { sendMessage } from '../../configs/socket'
 
 
 interface IProps {
@@ -17,9 +18,16 @@ const NewMessage: React.FC<IProps> = ({ close }) => {
   const user = useSelector(selectUser)
   const avatar = useSelector(getAvatar)
   const ref = useRef<HTMLTextAreaElement>(null)
+  const me = localStorage.getItem('me') || ''
 
   const sendHandler = (): void => {
     if (ref.current!.value) {
+      sendMessage({
+        from: me,
+        to: user._id || '',
+        text: ref.current!.value,
+        date: Date.now()
+      })
       console.log(ref.current!.value)
       ref.current!.value = ''
       close()

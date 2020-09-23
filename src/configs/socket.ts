@@ -19,4 +19,15 @@ const socketConfig = (store : any) => {
   return socket
 };
 
+type Message = {
+  from: string,
+  to: string,
+  chatId?: string,
+  date: number,
+  text: string
+}
+
+export const sendMessage = (data: Message) =>
+  socket.emit('sendMessage', {...data})
+
 export { socketConfig }

@@ -12,6 +12,7 @@ import Photos from '../components/Photos';
 
 import { getUserById } from '../store/users/actions'
 import { getLoading } from '../store/users/selectors'
+import { getCurrentUserChats } from '../store/chats/actions'
 
 
 const User: React.FC = () => {
@@ -21,6 +22,7 @@ const User: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUserById(id))
+    dispatch(getCurrentUserChats())
   }, [id])
 
   if (loading) {
