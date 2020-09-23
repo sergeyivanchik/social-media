@@ -14,6 +14,7 @@ const UserInfo: React.FC = () => {
   const [isShow, setIsShow] = useState<boolean>(false)
 
   const userInfo = useSelector(getUserInfo)
+  const me = localStorage.getItem('me')
 
   const clickHandler = (): void => {
     setIsShow(prev => !prev)
@@ -36,10 +37,16 @@ const UserInfo: React.FC = () => {
                 }
               </span>
             </div>
-
-            <div className={`user-info__status ${!userInfo.status && 'user-info__status_empty'}`}>
-              {userInfo.status || 'изменить статус'}
-            </div>
+            {
+              me === userInfo.id
+                ? <div className={`user-info__me-status ${!userInfo.status && 'user-info__me-status_empty'}`}>
+                    {userInfo.status || 'изменить статус'}
+                  </div>
+                : userInfo.status &&
+                  <div className={'user-info__status'}>
+                    {userInfo.status}
+                  </div>
+            }
           </div>
 
           <div className='user-info__short-info'>

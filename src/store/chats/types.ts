@@ -1,16 +1,18 @@
+import { IUser } from "../users/types";
+
 export interface IMessage {
   _id?: string,
   from?: string,
   to?: string,
-  date?: number,
+  date: number,
   text?: string
 }
 
 export interface IChats {
   _id?: string,
-  participants?: string[],
+  participants?: IUser[],
   messages?: IMessage[],
-  lastMessage?: IMessage
+  lastMessage: IMessage
 }
 
 export enum ChatsActionTypes {

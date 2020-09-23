@@ -10,7 +10,7 @@ const LeftSideBar: React.FC = () => {
   return (
     <div className='left-side-bar'>
       <SideBarItem title='Моя страница' icon='home' link={me}/>
-      <SideBarItem title='Сообщения' icon='forum' link={me}/>
+      <SideBarItem title='Сообщения' icon='forum' link={`messages/${me}`}/>
       <SideBarItem title='Друзья' icon='person' link={me}/>
     </div>
   )

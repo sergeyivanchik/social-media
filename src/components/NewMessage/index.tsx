@@ -28,7 +28,6 @@ const NewMessage: React.FC<IProps> = ({ close }) => {
         text: ref.current!.value,
         date: Date.now()
       })
-      console.log(ref.current!.value)
       ref.current!.value = ''
       close()
     }

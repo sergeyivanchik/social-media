@@ -9,6 +9,10 @@ interface IProps {
 }
 
 const CountItem: React.FC<IProps> = ({ label, count }) => {
+  if (!count) {
+    return null
+  }
+
   return (
     <div className='count-item'>
       <div className="count-item__count">

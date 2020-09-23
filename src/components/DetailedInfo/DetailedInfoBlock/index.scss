@@ -21,11 +21,15 @@
 
   &__title {
     color: $black;
+    background-color: $white;
+    padding-right: 5px;
   }
 
   &__edit {
     color: $grey;
     opacity: 0;
+    background-color: $white;
+    padding-left: 5px;
 
     &:hover {
       cursor: pointer;

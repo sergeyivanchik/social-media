@@ -12,6 +12,10 @@ const Counts: React.FC = () => {
   const friendsCount = useSelector(getFriendCount)
   const photosCount = useSelector(getPhotosCount)
 
+  if (!friendsCount && !getPhotosCount) {
+    return null
+  }
+
   return (
     <div className='counts'>
       <CountItem label='друзей' count={friendsCount}/>

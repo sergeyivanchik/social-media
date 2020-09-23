@@ -5,6 +5,7 @@ import './App.scss'
 
 import Header from './components/Header'
 import User from './pages/User'
+import Messages from './pages/Messages'
 
 
 const App: React.FC = () => {
@@ -14,9 +15,14 @@ const App: React.FC = () => {
 
       <div className='container'>
         <div className='wrapper'>
-          <Route path='/:id'>
-            <User/>
-          </Route>
+          <Switch>
+            <Route exact path='/:id'>
+              <User/>
+            </Route>
+            <Route exact path='/messages/:userId'>
+              <Messages/>
+            </Route>
+          </Switch>
         </div>
       </div>
     </BrowserRouter>

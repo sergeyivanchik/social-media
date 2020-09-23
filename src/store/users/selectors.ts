@@ -17,6 +17,7 @@ export const selectCurrentUser = createSelector(
 )
 
 type MainUserInfo = {
+  id?: string,
   name?: string
   surname?: string
   status?: string
@@ -29,6 +30,7 @@ type MainUserInfo = {
 export const getUserInfo = createSelector(
   selectUser,
   (currentUser): MainUserInfo => ({
+    id: currentUser._id,
     name: currentUser.name,
     surname: currentUser.surname,
     status: currentUser.status,

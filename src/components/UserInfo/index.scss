@@ -34,7 +34,7 @@
     color: $grey;
   }
 
-  &__status {
+  &__me-status {
     width: 100%;
     line-height: 16px;
     font-size: 13px;
@@ -49,6 +49,14 @@
     &_empty {
       color: $grey;
     }
+  }
+
+  &__status {
+    width: 100%;
+    line-height: 16px;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 4px 6px;
   }
 
   &__short-info {
