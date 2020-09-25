@@ -46,6 +46,13 @@ const Chat: React.FC<IProps> = ({ text, user, date, me, fromUser, id }) => {
       <div className='chat'>
         <div className='chat__photo'>
           <img src={getAvatarFromChat(user) || emptyAvatar} alt='user ava'/>
+
+          {
+            user?.online === 'online' &&
+            <div className='chat__online'>
+              <div/>
+            </div>
+          }
         </div>
 
         <div className='chat__info'>
