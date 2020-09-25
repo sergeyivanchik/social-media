@@ -6,6 +6,7 @@ import './App.scss'
 import Header from './components/Header'
 import User from './pages/User'
 import Messages from './pages/Messages'
+import Chat from './pages/Chat'
 
 
 const App: React.FC = () => {
@@ -21,6 +22,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact path='/messages/:userId'>
               <Messages/>
+            </Route>
+            <Route exact path='/chat/:id'>
+              <Chat/>
             </Route>
           </Switch>
         </div>

@@ -19,7 +19,6 @@ const Messages: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUserById(userId))
-    dispatch(getCurrentUserChats())
   }, [])
 
   if (loading) {

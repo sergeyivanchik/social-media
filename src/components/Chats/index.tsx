@@ -8,11 +8,17 @@ import Chat from './Chat'
 
 import { selectChats } from '../../store/chats/selectors'
 import { getChatUser } from '../../helpers'
+import { getCurrentUserChats } from '../../store/chats/actions'
 
 
 const Chats: React.FC = () => {
+  const dispatch = useDispatch()
   const chats = useSelector(selectChats)
   const me = localStorage.getItem('me') || ''
+
+  useEffect(() => {
+    dispatch(getCurrentUserChats())
+  }, [])
 
   return (
     <div className='chats'>
@@ -22,9 +28,10 @@ const Chats: React.FC = () => {
             key={elem._id}
             text={elem.lastMessage?.text}
             user={getChatUser(elem.participants)}
-            date={+elem.lastMessage?.date}
+            date={+(elem?.lastMessage?.date || '')}
             me={me}
-            from={elem.lastMessage?.from}
+            fromUser={elem?.lastMessage?.from}
+            id={elem._id}
           />
         ))
       }

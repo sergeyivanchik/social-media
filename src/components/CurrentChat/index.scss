@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+.current-chat {
+  background-color: $white;
+  height: 90vh;
+  border-radius: 4px;
+  box-shadow: 0 1px 0 0 $cyan-lighten-4, 0 0 0 1px $cyan-lighten-4;
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+
+  &__top {
+    border-bottom: 1px solid $cyan-lighten-5;
+    padding: 8px 0 4px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__user-name {
+    text-align: center;
+    font-size: 13.5px;
+    color: $black;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,'Roboto','Helvetica Neue',Geneva,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif,arial,Tahoma,verdana;
+  }
+
+  &__user-status {
+    font-size: 12.5px;
+    text-align: center;
+    font-weight: 400;
+    color: $grey;
+    margin-top: -2px;
+  }
+
+  &__messages {
+    width: 100%;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 0
+    }
+  }
+}

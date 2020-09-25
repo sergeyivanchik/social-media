@@ -15,7 +15,7 @@ const months = [
   'декабря'
 ]
 
-export const getLastMessageDate = (date: number): string  | void => {
+export const getMessageDate = (date: number): string  | void => {
   const currentDate = new Date()
   const currentDay = currentDate.getDate()
   const currentYear = currentDate.getFullYear()
@@ -51,7 +51,7 @@ export const getBirthday = (date: number | undefined): string | void => {
   }
 }
 
-export const getOnlineDate = (date: number): string  | void => {
+export const getOnlineDate = (date: number | undefined): string  | void => {
   const currentDate = new Date()
   const currentDay = currentDate.getDate()
   const currentYear = currentDate.getFullYear()

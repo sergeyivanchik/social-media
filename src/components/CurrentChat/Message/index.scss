@@ -1,0 +1,65 @@
+@import '../../../styles/variables.scss';
+
+.message {
+  margin-bottom: 4px;
+  width: 100%;
+  padding: 5px 0;
+  padding-left: 30px;
+  display: flex;
+
+  &__user-photo {
+    width: 36px;
+    height: 36px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+
+  &__user {
+    display: flex;
+  }
+
+  &__user-name {
+    font-weight: 700;
+    color: $cyan-accent-3;
+    font-size: 13px;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  &__date {
+    font-weight: 400;
+    color: $grey;
+    font-size: 12.5px;
+    margin-left: 5px;
+  }
+
+  &__text {
+    width: 390px;
+    white-space: pre-line;
+    overflow-wrap: break-word;
+    font-size: 13px;
+    color: $black;
+    font-weight: 400;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

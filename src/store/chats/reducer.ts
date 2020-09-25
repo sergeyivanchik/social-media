@@ -5,16 +5,21 @@ const initialState: ChatsState = {
   data: [],
   loading: false,
   errors: '',
-  typing: []
+  typing: [],
+  messages: [],
+  currentChat: {}
 }
 
 export const chatsReducer: Reducer<ChatsState> = (state = initialState, action) => {
   switch(action.type) {
+    case ChatsActionTypes.GET_CURRENT_USER_CHAT:
+      return { ...state, currentChat: action.payload }
+
     case ChatsActionTypes.GET_CURRENT_USER_CHATS:
       return { ...state, data: action.payload }
 
-    // case UsersActionTypes.GET_CURRENT_USER:
-    //   return { ...state, me: action.payload }
+    case ChatsActionTypes.GET_CURREN_CHAT_MESSAGES:
+      return { ...state, messages: action.payload }
 
     case ChatsActionTypes.FETCH_FAILURE:
       return { ...state, errors: action.payload }

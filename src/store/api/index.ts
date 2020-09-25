@@ -1,4 +1,4 @@
-import { IMessage } from './../chats/types'
+import { IMessage, IChat } from './../chats/types'
 import { IUser } from '../users/types'
 import axios from 'axios'
 
@@ -14,6 +14,12 @@ export const usersApi = {
 
 export const chatsApi = {
   fetchChatsByUser(userId: string) {
-    return axios.get<IMessage[]>(`/chats/${userId}`)
-  }
+    return axios.get<IChat[]>(`/chats/${userId}`)
+  },
+  fetchMessagesByChat(chatId: string) {
+    return axios.get<IMessage[]>(`/chats/chat/${chatId}/messages`)
+  },
+  fetchCurrentChat(chatId: string) {
+    return axios.get<IChat>(`/chats/chat/${chatId}`)
+  },
 }

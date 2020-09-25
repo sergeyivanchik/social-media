@@ -1,7 +1,7 @@
 import io from 'socket.io-client'
 
 import { devURL } from '../store/api'
-import { getCurrentUserChats, typing } from '../store/chats/actions'
+import { getCurrentUserChats, typing, getCurrenChatMessages } from '../store/chats/actions'
 
 
 const socket = io(devURL)
@@ -17,7 +17,8 @@ const socketConfig = (dispatch : any) => {
     console.log('disconnected')
   })
 
-  socket.on('newMessage', () => {
+  socket.on('newMessage', (chatId: string) => {
+    dispatch(getCurrenChatMessages(chatId))
     dispatch(getCurrentUserChats())
   })
 
