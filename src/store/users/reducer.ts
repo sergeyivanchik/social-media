@@ -29,6 +29,9 @@ export const usersReducer: Reducer<UsersState> = (state = initialState, action) 
     case UsersActionTypes.HIDE_PRELOADER:
       return { ...state, loading: false }
 
+    case UsersActionTypes.REMOVE_USER:
+      return { ...state, me: { online: '' }, data: { online: '' } }
+
     default:
       return state
   }

@@ -14,6 +14,8 @@ const showPreloader = () => action(UsersActionTypes.SHOW_PRELOADER)
 
 const hidePreloader = () => action(UsersActionTypes.HIDE_PRELOADER)
 
+export const removeUser = () => action(UsersActionTypes.REMOVE_USER)
+
 export const getUserById = (userId: string) => {
   return async (dispatch: Dispatch) => {
     try {

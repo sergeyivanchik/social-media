@@ -20,6 +20,15 @@ const hidePreloader = () => action(ChatsActionTypes.HIDE_PRELOADER)
 const getCurrenChatMessagesSuccess = (messages: IMessage[]) =>
   action(ChatsActionTypes.GET_CURREN_CHAT_MESSAGES, messages)
 
+export const removeCurrentUserChats = () =>
+  action(ChatsActionTypes.REMOVE_CURRENT_USER_CHATS)
+
+export const removeCurrentUserChat = () =>
+  action(ChatsActionTypes.REMOVE_CURRENT_USER_CHAT)
+
+export const removeCurrentChatMessages = () =>
+  action(ChatsActionTypes.REMOVE_CURRENT_CHAT_MESSAGES)
+
 export const getCurrentUserChat = (chatId: string) => {
   return async (dispatch: Dispatch) => {
     try {

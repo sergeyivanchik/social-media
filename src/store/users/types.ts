@@ -37,6 +37,7 @@ export interface IUser {
 export enum UsersActionTypes {
   GET_USER_BY_ID = '@@users/GET_USER_BY_ID',
   GET_CURRENT_USER = '@@users/GET_CURRENT_USER',
+  REMOVE_USER = '@@users/REMOVE_USER',
   FETCH_FAILURE = '@@users/FETCH_FAILURE',
   SHOW_PRELOADER = '@@users/SHOW_PRELOADER',
   HIDE_PRELOADER = '@@users/HIDE_PRELOADER'

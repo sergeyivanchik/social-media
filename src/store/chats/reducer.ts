@@ -37,6 +37,15 @@ export const chatsReducer: Reducer<ChatsState> = (state = initialState, action) 
       const newTyping = state.typing.filter(elem => elem !== action.payload)
       return { ...state, typing: newTyping || []}
 
+    case ChatsActionTypes.REMOVE_CURRENT_USER_CHATS:
+      return { ...state, data: []}
+
+    case ChatsActionTypes.REMOVE_CURRENT_USER_CHAT:
+      return { ...state, currentChat: {}}
+
+    case ChatsActionTypes.GET_CURREN_CHAT_MESSAGES:
+      return { ...state, messages: []}
+
     default:
       return state
   }

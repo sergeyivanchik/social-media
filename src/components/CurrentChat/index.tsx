@@ -7,7 +7,7 @@ import './index.scss'
 import Preloader from '../Preloader'
 import Message from './Message'
 
-import { getMessages, getLoading } from '../../store/chats/selectors'
+import { getMessages, getLoading, getCurrentChat } from '../../store/chats/selectors'
 import { getOnlineDate } from '../../helpers'
 import { IUser } from '../../store/users/types'
 import { getCurrenChatMessages, getCurrentUserChat } from '../../store/chats/actions'
@@ -21,13 +21,14 @@ const CurrentChat: React.FC<IProps> = ({ currentUser }) => {
   const dispatch = useDispatch()
   const { id } = useParams()
   const messages = useSelector(getMessages)
+  const currentChat = useSelector(getCurrentChat)
   const online = currentUser?.online || 0
   const ref = useRef<HTMLDivElement>(null)
   const loading = useSelector(getLoading)
 
   useEffect(() => {
-    dispatch(getCurrenChatMessages(id))
-    dispatch(getCurrentUserChat(id))
+    !messages.length && dispatch(getCurrenChatMessages(id))
+    !currentChat._id && dispatch(getCurrentUserChat(id))
   }, [id])
 
   useEffect(() => {

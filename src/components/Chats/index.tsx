@@ -9,6 +9,7 @@ import Chat from './Chat'
 import { selectChats } from '../../store/chats/selectors'
 import { getChatUser } from '../../helpers'
 import { getCurrentUserChats } from '../../store/chats/actions'
+import Preloader from '../Preloader'
 
 
 const Chats: React.FC = () => {
@@ -23,17 +24,23 @@ const Chats: React.FC = () => {
   return (
     <div className='chats'>
       {
-        chats.map(elem => (
-          <Chat
-            key={elem._id}
-            text={elem.lastMessage?.text}
-            user={getChatUser(elem.participants)}
-            date={+(elem?.lastMessage?.date || '')}
-            me={me}
-            fromUser={elem?.lastMessage?.from}
-            id={elem._id}
-          />
-        ))
+        !chats.length
+          ? <Preloader/>
+          : <>
+              {
+                chats.map(elem => (
+                  <Chat
+                    key={elem._id}
+                    text={elem.lastMessage?.text}
+                    user={getChatUser(elem.participants)}
+                    date={+(elem?.lastMessage?.date || '')}
+                    me={me}
+                    fromUser={elem?.lastMessage?.from}
+                    id={elem._id || ''}
+                  />
+                ))
+              }
+            </>
       }
     </div>
   );

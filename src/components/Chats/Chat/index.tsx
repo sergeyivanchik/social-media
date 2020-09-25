@@ -11,6 +11,12 @@ import { IUser } from '../../../store/users/types'
 import { getAvatarFromChat, getMessageDate } from '../../../helpers'
 import { getCurrentUserAvatar } from '../../../store/users/selectors'
 import { getTyping } from '../../../store/chats/selectors'
+import {
+  removeCurrentUserChat,
+  removeCurrentChatMessages,
+  getCurrenChatMessages,
+  getCurrentUserChat
+} from '../../../store/chats/actions'
 
 
 interface IProps {
@@ -19,15 +25,24 @@ interface IProps {
   date: number,
   me?: string,
   fromUser?: string,
-  id?: string
+  id: string
 }
 
 const Chat: React.FC<IProps> = ({ text, user, date, me, fromUser, id }) => {
+  const dispatch = useDispatch()
   const avatar = useSelector(getCurrentUserAvatar)
   const typings = useSelector(getTyping)
 
   return (
-    <Link to={`/chat/${id}`}>
+    <Link
+      to={`/chat/${id}`}
+      onClick={() => {
+        dispatch(removeCurrentUserChat())
+        dispatch(removeCurrentChatMessages())
+        dispatch(getCurrenChatMessages(id))
+        dispatch(getCurrentUserChat(id))
+      }}
+    >
       <div className='chat'>
         <div className='chat__photo'>
           <img src={getAvatarFromChat(user) || emptyAvatar} alt='user ava'/>
