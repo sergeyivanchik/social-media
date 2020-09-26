@@ -7,7 +7,12 @@ import './index.scss'
 import Preloader from '../Preloader'
 import Message from './Message'
 
-import { getMessages, getLoading, getCurrentChat } from '../../store/chats/selectors'
+import {
+  getMessages,
+  getLoading,
+  getCurrentChat,
+  getTyping
+} from '../../store/chats/selectors'
 import { getOnlineDate } from '../../helpers'
 import { IUser } from '../../store/users/types'
 import { getCurrenChatMessages, getCurrentUserChat } from '../../store/chats/actions'
@@ -25,6 +30,7 @@ const CurrentChat: React.FC<IProps> = ({ currentUser }) => {
   const online = currentUser?.online || 0
   const ref = useRef<HTMLDivElement>(null)
   const loading = useSelector(getLoading)
+  const typing = useSelector(getTyping)
 
   useEffect(() => {
     !messages.length && dispatch(getCurrenChatMessages(id))
@@ -33,9 +39,9 @@ const CurrentChat: React.FC<IProps> = ({ currentUser }) => {
 
   useEffect(() => {
     if (ref.current) {
-      // setTimeout(() => {
+      setTimeout(() => {
         ref.current!.scrollTop = ref.current!.scrollHeight
-      // })
+      })
     }
   })
 
@@ -66,6 +72,10 @@ const CurrentChat: React.FC<IProps> = ({ currentUser }) => {
                       from={elem.from}
                     />
                   ))
+                }
+                {
+                  typing?.find(elem => elem === currentUser?._id) &&
+                  <div>{currentUser.name} печатает сообщение...</div>
                 }
               </div>
             </>

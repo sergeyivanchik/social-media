@@ -1,0 +1,71 @@
+@import '../../../styles/variables.scss';
+
+.user-friend {
+  display: flex;
+  padding: 12px 0;
+  border-bottom: 1px solid $cyan-lighten-5;
+
+  &__avatar {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 13.5px;
+    color: $cyan-accent-3;
+    margin-bottom: 3px;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &__mailing {
+    font-weight: 400;
+    font-size: 13.5px;
+    color: $cyan-accent-3;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__online {
+    background-color: $white;
+    position: absolute;
+    bottom: 10px;
+    right: -1px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      background-color: $green-accent-3;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+  }
+}

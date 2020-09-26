@@ -13,7 +13,7 @@ interface IProps {
 
 const SideBarItem: React.FC<IProps> = ({ title, icon, link, click }) => {
   return (
-    <Link to={`/${link}`} onClick={click}>
+    <Link to={`/${link}`} onClick={() => click()}>
       <div className='side-bar-item'>
         <i className='material-icons side-bar-item__icon'>{icon}</i>
         <span className='side-bar-item__title'>{title}</span>

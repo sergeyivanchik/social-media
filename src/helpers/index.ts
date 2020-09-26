@@ -83,7 +83,7 @@ export const getChatUser = (users?: IUser[]) => {
   return currentUser
 }
 
-export const getAvatarFromChat = (user?: IUser) => {
+export const getUserAvatar = (user?: IUser) => {
   const avatar = user?.photos?.find(elem => elem.isAvatar)
 
     return avatar?.photo || ''

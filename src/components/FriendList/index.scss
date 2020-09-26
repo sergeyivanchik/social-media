@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.chats {
+.friend-list {
   width: 550px;
   background-color: $white;
   border-radius: 4px;
@@ -9,4 +9,15 @@
   height: 100%;
   box-shadow: 0 1px 0 0 $cyan-lighten-4, 0 0 0 1px $cyan-lighten-4;
   max-height: 90vh;
+
+  &__top {
+    height: 55px;
+    background-color: $light-green-lighten-5;
+    display: flex;
+    padding-left: 16px;
+  }
+
+  &__container {
+    padding: 0 20px;
+  }
 }

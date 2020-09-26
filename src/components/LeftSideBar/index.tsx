@@ -27,7 +27,7 @@ const LeftSideBar: React.FC = () => {
       <SideBarItem
         title='Сообщения'
         icon='forum'
-        link={`messages/${me}`}
+        link={`${me}/messages`}
         click={() => {
           dispatch(removeCurrentUserChats())
           dispatch(getCurrentUserChats())
@@ -36,8 +36,11 @@ const LeftSideBar: React.FC = () => {
       <SideBarItem
         title='Друзья'
         icon='person'
-        link={me}
-        click={() => dispatch(removeCurrentUserChats())}
+        link={`${me}/friends`}
+        click={() => {
+          dispatch(removeUser())
+          dispatch(getUserById(me))
+        }}
       />
     </div>
   )

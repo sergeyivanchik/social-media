@@ -7,6 +7,7 @@ import Header from './components/Header'
 import User from './pages/User'
 import Messages from './pages/Messages'
 import Chat from './pages/Chat'
+import Friends from './pages/Friends'
 
 
 const App: React.FC = () => {
@@ -20,11 +21,14 @@ const App: React.FC = () => {
             <Route exact path='/:id'>
               <User/>
             </Route>
-            <Route exact path='/messages/:userId'>
+            <Route exact path='/:userId/messages'>
               <Messages/>
             </Route>
             <Route exact path='/chat/:id'>
               <Chat/>
+            </Route>
+            <Route path='/:userId/friends'>
+              <Friends/>
             </Route>
           </Switch>
         </div>

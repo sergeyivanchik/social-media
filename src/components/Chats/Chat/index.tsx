@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 import './index.scss'
@@ -8,7 +7,7 @@ import './index.scss'
 import emptyAvatar from '../../../images/empty_avatar.png'
 
 import { IUser } from '../../../store/users/types'
-import { getAvatarFromChat, getMessageDate } from '../../../helpers'
+import { getUserAvatar, getMessageDate } from '../../../helpers'
 import { getCurrentUserAvatar } from '../../../store/users/selectors'
 import { getTyping } from '../../../store/chats/selectors'
 import {
@@ -45,7 +44,7 @@ const Chat: React.FC<IProps> = ({ text, user, date, me, fromUser, id }) => {
     >
       <div className='chat'>
         <div className='chat__photo'>
-          <img src={getAvatarFromChat(user) || emptyAvatar} alt='user ava'/>
+          <img src={getUserAvatar(user) || emptyAvatar} alt='user ava'/>
 
           {
             user?.online === 'online' &&

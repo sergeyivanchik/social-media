@@ -7,7 +7,7 @@ import './index.scss'
 
 import emptyAvatar from '../../../images/empty_avatar.png'
 
-import { getMessageDate, getAvatarFromChat } from '../../../helpers'
+import { getMessageDate, getUserAvatar } from '../../../helpers'
 import {
   getCurrentUserAvatar,
   selectUser,
@@ -30,7 +30,7 @@ const Message: React.FC<IProps> = ({ text, date, from }) => {
   const meInfo = useSelector(selectCurrentUser)
   const userInfo = useSelector(selectUser)
 
-  const ava = getAvatarFromChat(from)
+  const ava = getUserAvatar(from)
   const userName = me === from?._id ? meInfo.name : userInfo.name
 
   return (
