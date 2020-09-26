@@ -8,7 +8,7 @@ import emptyAvatar from '../../images/empty_avatar.png'
 
 import NewMessage from '../NewMessage'
 
-import { getAvatar } from '../../store/users/selectors'
+import { getAvatar, selectUser } from '../../store/users/selectors'
 
 
 const Photo: React.FC = () => {
@@ -17,6 +17,7 @@ const Photo: React.FC = () => {
   const avatar = useSelector(getAvatar)
   const me = localStorage.getItem('me') || ''
   const { id } = useParams()
+  const user = useSelector(selectUser)
 
   return (
     <>
@@ -41,7 +42,10 @@ const Photo: React.FC = () => {
 
       {
         showNewMessage &&
-        <NewMessage close={() => setShowNewMessage(false)}/>
+        <NewMessage
+          close={() => setShowNewMessage(false)}
+          user={user}
+        />
       }
     </>
   )

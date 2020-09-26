@@ -5,18 +5,18 @@ import './index.scss'
 
 import emptyAvatar from '../../images/empty_avatar.png'
 
-import { selectUser, getAvatar } from '../../store/users/selectors'
 import { getOnlineDate } from '../../helpers'
 import { sendMessage, typingMessage } from '../../configs/socket'
+import { IUser } from '../../store/users/types'
+import { getUserAvatar } from '../../helpers'
 
 
 interface IProps {
   close: () => void
+  user: IUser
 }
 
-const NewMessage: React.FC<IProps> = ({ close }) => {
-  const user = useSelector(selectUser)
-  const avatar = useSelector(getAvatar)
+const NewMessage: React.FC<IProps> = ({ close, user }) => {
   const ref = useRef<HTMLTextAreaElement>(null)
   const me = localStorage.getItem('me') || ''
 
@@ -52,7 +52,7 @@ const NewMessage: React.FC<IProps> = ({ close }) => {
         <div className='new-message__bottom'>
           <div className='new-message__user-block'>
             <div className='new-message__user-avatar'>
-              <img src={avatar || emptyAvatar} alt='user ava'/>
+              <img src={getUserAvatar(user) || emptyAvatar} alt='user ava'/>
             </div>
 
             <div className='new-message__user-info'>
