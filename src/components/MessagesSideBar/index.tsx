@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import './index.scss'
-import MessagesSideBarItem from './MessagesSideBarItem/undex'
+import MessagesSideBarItem from './MessagesSideBarItem'
 
 
 const MessagesSideBar: React.FC = () => {

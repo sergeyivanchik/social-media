@@ -14,7 +14,6 @@ interface IProps {
 }
 
 const InfoItem: React.FC<IProps> = ({ label, value, values, isLink }) => {
-
   if (!value && !values?.length) {
     return null
   }

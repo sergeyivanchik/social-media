@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import React from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 import './index.scss'
@@ -8,12 +7,7 @@ import './index.scss'
 import emptyAvatar from '../../../images/empty_avatar.png'
 
 import { getMessageDate, getUserAvatar } from '../../../helpers'
-import {
-  getCurrentUserAvatar,
-  selectUser,
-  selectCurrentUser,
-  getAvatar
-} from '../../../store/users/selectors'
+import { selectUser, selectCurrentUser } from '../../../store/users/selectors'
 import { IUser } from '../../../store/users/types'
 
 
@@ -25,8 +19,6 @@ interface IProps {
 
 const Message: React.FC<IProps> = ({ text, date, from }) => {
   const me = localStorage.getItem('me')
-  const meAvatar = useSelector(getCurrentUserAvatar)
-  const userAvater = useSelector(getAvatar)
   const meInfo = useSelector(selectCurrentUser)
   const userInfo = useSelector(selectUser)
 

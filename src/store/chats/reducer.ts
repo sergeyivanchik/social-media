@@ -43,7 +43,7 @@ export const chatsReducer: Reducer<ChatsState> = (state = initialState, action) 
     case ChatsActionTypes.REMOVE_CURRENT_USER_CHAT:
       return { ...state, currentChat: {}}
 
-    case ChatsActionTypes.GET_CURREN_CHAT_MESSAGES:
+    case ChatsActionTypes.REMOVE_CURRENT_CHAT_MESSAGES:
       return { ...state, messages: []}
 
     default:

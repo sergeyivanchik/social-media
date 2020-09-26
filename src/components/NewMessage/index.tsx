@@ -1,5 +1,4 @@
 import React, { useRef } from 'react'
-import { useSelector } from 'react-redux'
 
 import './index.scss'
 
