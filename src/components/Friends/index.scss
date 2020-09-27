@@ -41,7 +41,11 @@
     padding-top: 6px;
   }
 
-  &__online {
+  &__online, &__mutual {
     border-top: 1px solid $grey-lighten-3;
   }
+
+  // &__mutual {
+  //   border-bottom: 1px solid $grey-lighten-3;
+  // }
 }

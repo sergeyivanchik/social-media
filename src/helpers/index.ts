@@ -83,7 +83,7 @@ export const getChatUser = (users?: IUser[]) => {
   return currentUser
 }
 
-export const getUserAvatar = (user?: IUser):string => {
+export const getUserAvatar = (user?: IUser): string => {
   const avatar = user?.photos?.find(elem => elem.isAvatar)
 
   return avatar?.photo || ''
@@ -93,13 +93,14 @@ export const isFriend = (users?: IUser[], userId?: string): boolean => {
   return !!users?.find(elem => elem._id === userId)
 }
 
+export const mutualFriends =
+(currentUserFriends?: IUser[], userFriends?: IUser[]) => {
+  return userFriends?.filter(elem =>
+    isFriend(currentUserFriends, elem._id)
+  )
+}
+
 export const getMutualFriendsCount =
 (currentUserFriends?: IUser[], userFriends?: IUser[]): number => {
-  let count = 0
-
-  userFriends?.forEach(elem => {
-    isFriend(currentUserFriends, elem._id) && count++
-  })
-
-  return count
+  return mutualFriends(currentUserFriends, userFriends)?.length || 0
 }
