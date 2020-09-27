@@ -39,7 +39,7 @@
       opacity: .68;
     }
 
-    &_edit {
+    &_action {
       background-color: $cyan-lighten-5;
       color: $grey;
 
@@ -47,5 +47,13 @@
         opacity: .78;
       }
     }
+  }
+
+  &__action {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    border-radius: 4px;
   }
 }
