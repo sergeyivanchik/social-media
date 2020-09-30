@@ -1,0 +1,46 @@
+@import '../../../styles/variables.scss';
+
+.friends-tab {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0 5px;
+  margin-right: 10px;
+
+  &:hover {
+    cursor: pointer;
+    padding-top: 1px;
+    border-bottom: 1px solid $cyan-accent-3;
+  }
+
+  &_active {
+    border-bottom: 2px solid $cyan-accent-3;
+    padding-top: 2px;
+
+    &:hover {
+      border-bottom: 2px solid $cyan-accent-3;
+      padding-top: 2px;
+    }
+
+    .friends-tab__title {
+      color: $black;
+    }
+  }
+
+  &__title {
+    font-size: 14.5;
+    color: $grey;
+    font-weight: 400;
+    margin-right: 6px;
+  }
+
+  &__count {
+    font-size: 14.5;
+    color: $grey;
+    font-weight: 400;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+}

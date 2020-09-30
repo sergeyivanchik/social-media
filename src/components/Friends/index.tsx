@@ -113,7 +113,7 @@ const Friends: React.FC = () => {
       }
 
       {
-        !!currentMutualFriends &&
+        !!currentMutualFriends?.length &&
         me !== id &&
         <div className='friends__mutual'>
           <div className='friends__top'>

@@ -35,10 +35,11 @@ const Counts: React.FC = () => {
         <CountItem
           label='общих друзей'
           count={getMutualFriendsCount(currentUser.friends, user.friends)}
+          id={0}
         />
       }
-      <CountItem label='друзей' count={friendsCount}/>
-      <CountItem label='фотографии' count={photosCount}/>
+      <CountItem label='друзей' count={friendsCount} id={1}/>
+      <CountItem label='фотографии' count={photosCount} id={2}/>
     </div>
   )
 }
