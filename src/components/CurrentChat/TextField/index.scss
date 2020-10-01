@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+
+.text-field {
+  width: 100%;
+  max-width: 438px;
+  background-color: $white;
+  padding: 5px;
+  border: 1px solid $grey;
+  resize: none;
+  border-radius: 3px;
+  font-size: 13px;
+  color: $black;
+  font-weight: 400;
+  max-height: 100px;
+  height: 100%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &__send {
+    position: absolute;
+    right: 15px;
+    bottom: 18px;
+    color: $grey;
+    opacity: 0.8;
+    font-size: 20px;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 1;
+    }
+  }
+}

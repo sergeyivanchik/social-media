@@ -41,9 +41,21 @@
   &__messages {
     width: 100%;
     overflow-y: auto;
+    height: 100%;
 
     &::-webkit-scrollbar {
       width: 0
     }
+  }
+
+  &__input {
+    width: 100%;
+    background-color: $grey-lighten-5;
+    padding: 12px 56px;
+    position: relative;
+  }
+
+  &__text-wrapper {
+    height: 100%;
   }
 }

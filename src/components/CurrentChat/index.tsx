@@ -6,12 +6,13 @@ import './index.scss'
 
 import Preloader from '../Preloader'
 import Message from './Message'
+import TextField from './TextField'
+import Typing from './Typing'
 
 import {
   getMessages,
   getLoading,
   getCurrentChat,
-  getTyping
 } from '../../store/chats/selectors'
 import { getOnlineDate } from '../../helpers'
 import { IUser } from '../../store/users/types'
@@ -30,7 +31,6 @@ const CurrentChat: React.FC<IProps> = ({ currentUser }) => {
   const online = currentUser?.online || 0
   const ref = useRef<HTMLDivElement>(null)
   const loading = useSelector(getLoading)
-  const typing = useSelector(getTyping)
 
   useEffect(() => {
     !messages.length && dispatch(getCurrenChatMessages(id))
@@ -73,10 +73,13 @@ const CurrentChat: React.FC<IProps> = ({ currentUser }) => {
                     />
                   ))
                 }
-                {
-                  typing?.find(elem => elem === currentUser?._id) &&
-                  <div>{currentUser.name} печатает сообщение...</div>
-                }
+              </div>
+              <Typing currentUser={currentUser}/>
+
+              <div className='current-chat__input'>
+                <div className='current-chat__text-wrapper'>
+                    <TextField userId={currentUser._id}/>
+                </div>
               </div>
             </>
       }
