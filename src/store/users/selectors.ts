@@ -16,6 +16,16 @@ export const selectCurrentUser = createSelector(
   (currentUser): IUser => currentUser
 )
 
+export const selectIncomingFriendRequests = createSelector(
+  user,
+  (currentUser): IUser[] => currentUser.incomingFriendRequests || []
+)
+
+export const selectOutgoingFriendRequests = createSelector(
+  user,
+  (currentUser): IUser[] => currentUser.outgoingFriendRequests || []
+)
+
 type MainUserInfo = {
   id?: string,
   name?: string

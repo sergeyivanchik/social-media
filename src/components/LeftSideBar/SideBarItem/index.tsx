@@ -26,7 +26,7 @@ const SideBarItem: React.FC<IProps> = ({ title, icon, link, click, count }) => {
         </div>
 
         {
-          count &&
+          !!count &&
           <div className='side-bar-item__badge'>
             {
               count > 99 ? '99+' : count

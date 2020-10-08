@@ -1,6 +1,6 @@
 @import '../../../styles/variables.scss';
 
-.messages-side-bar-item {
+.right-side-bar-item {
   width: 100%;
   padding-left: 18px;
   font-size: 13.5px;
@@ -9,6 +9,7 @@
   height: 32px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   &:hover {
     cursor: pointer;
@@ -21,5 +22,14 @@
     padding-left: 16px;
     color: $black;
     font-weight: 500;
+  }
+
+  &__count {
+    padding: 1px 7px;
+    margin-right: 10px;
+    color: $white;
+    background-color: $cyan-accent-3;
+    font-weight: 600;
+    font-size: 12px;
   }
 }

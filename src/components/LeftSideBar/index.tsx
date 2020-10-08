@@ -1,5 +1,5 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import './index.scss'
 
@@ -7,11 +7,13 @@ import SideBarItem from './SideBarItem'
 
 import { removeCurrentUserChats, getCurrentUserChats } from '../../store/chats/actions'
 import { removeUser, getUserById } from '../../store/users/actions'
+import { selectIncomingFriendRequests } from '../../store/users/selectors'
 
 
 const LeftSideBar: React.FC = () => {
   const me = localStorage.getItem('me') || '/'
   const dispatch = useDispatch()
+  const incomingFriendRequests = useSelector(selectIncomingFriendRequests)
 
   return (
     <div className='left-side-bar'>
@@ -32,7 +34,6 @@ const LeftSideBar: React.FC = () => {
           dispatch(removeCurrentUserChats())
           dispatch(getCurrentUserChats())
         }}
-        count={150}
       />
       <SideBarItem
         title='Друзья'
@@ -42,7 +43,7 @@ const LeftSideBar: React.FC = () => {
           dispatch(removeUser())
           dispatch(getUserById(me))
         }}
-        count={10}
+        count={incomingFriendRequests?.length}
       />
     </div>
   )

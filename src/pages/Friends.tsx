@@ -1,17 +1,36 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 
 import LeftSideBar from '../components/LeftSideBar'
 import FriendList from '../components/FriendList'
-import MessagesSideBar from '../components/MessagesSideBar'
+import RightSideBar from '../components/RightSideBar'
+import FriendRequets from '../components/FriendRequests'
 
 import { getUserById } from '../store/users/actions'
+import {
+  selectIncomingFriendRequests,
+  selectOutgoingFriendRequests
+} from '../store/users/selectors'
 
 
 const Friends: React.FC = () => {
+  const [currentItem, setCurrentItem] = useState(0)
+
   const dispatch = useDispatch()
   const { userId } = useParams()
+  const me = localStorage.getItem('me') || ''
+  const incomingFriendRequests = useSelector(selectIncomingFriendRequests)
+  const outgoingFriendRequests = useSelector(selectOutgoingFriendRequests)
+
+  const items = [
+    {
+      title: 'Мои друзья'
+    },
+    {
+      title: 'Заявки в друзья',
+      count: incomingFriendRequests?.length
+    }]
 
   useEffect(() => {
     dispatch(getUserById(userId))
@@ -20,8 +39,26 @@ const Friends: React.FC = () => {
   return (
     <>
       <LeftSideBar/>
-      <FriendList/>
-      <MessagesSideBar/>
+      <div>
+        {
+          (!!incomingFriendRequests?.length || !!outgoingFriendRequests?.length) &&
+          me === userId &&
+          <FriendRequets
+            incomingRequests={incomingFriendRequests}
+            outgoingRequests={outgoingFriendRequests}
+            currentItem={currentItem}
+          />
+        }
+        {
+          currentItem === 0 &&
+          <FriendList/>
+        }
+      </div>
+      <RightSideBar
+        items={items}
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+      />
     </>
   );
 }

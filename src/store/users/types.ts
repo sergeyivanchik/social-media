@@ -31,7 +31,9 @@ export interface IUser {
     isAvatar: boolean
   }[]
   status?: string,
-  online: string
+  online: string,
+  incomingFriendRequests?: IUser[],
+  outgoingFriendRequests?: IUser[]
 }
 
 export enum UsersActionTypes {

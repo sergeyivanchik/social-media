@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-.friend-list {
+.friend-requests {
   width: 550px;
   background-color: $white;
   border-radius: 4px;
@@ -9,15 +9,26 @@
   // height: 100%;
   box-shadow: 0 1px 0 0 $cyan-lighten-4, 0 0 0 1px $cyan-lighten-4;
   // max-height: 90vh;
+  margin-bottom: 15px;
 
   &__top {
     height: 55px;
     background-color: $blue-lighten-5;
     display: flex;
+    align-items: center;
     padding-left: 16px;
+    font-size: 17px;
+    color: $black;
+    font-weight: 600;
   }
 
   &__container {
     padding: 0 20px;
+  }
+
+  &__count {
+    color: $grey;
+    margin-left: 7px;
+    font-size: 15px;
   }
 }

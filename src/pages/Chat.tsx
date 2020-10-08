@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import LeftSideBar from '../components/LeftSideBar'
 import CurrentChat from '../components/CurrentChat'
-import MessagesSideBar from '../components/MessagesSideBar'
+import RightSideBar from '../components/RightSideBar'
 
 import { getUserById } from '../store/users/actions'
 import {  getCurrentChat } from '../store/chats/selectors'
 
 
 const Chat: React.FC = () => {
+  const [currentItem, setCurrentItem] = useState(0)
+
   const dispatch = useDispatch()
   const currentChat = useSelector(getCurrentChat)
 
@@ -21,11 +23,24 @@ const Chat: React.FC = () => {
     currentUser?._id && dispatch(getUserById(currentUser?._id || ''))
   }, [currentUser])
 
+  const items = [
+    {
+      title: 'Все сообщения'
+    },
+    {
+      title: 'Непрочитанные сообщения'
+    }
+  ]
+
   return (
     <>
       <LeftSideBar/>
       <CurrentChat currentUser={currentUser}/>
-      <MessagesSideBar/>
+      <RightSideBar
+        items={items}
+        currentItem={currentItem}
+        setCurrentItem={setCurrentItem}
+      />
     </>
   );
 }
