@@ -32,6 +32,7 @@ const LeftSideBar: React.FC = () => {
           dispatch(removeCurrentUserChats())
           dispatch(getCurrentUserChats())
         }}
+        count={150}
       />
       <SideBarItem
         title='Друзья'
@@ -41,6 +42,7 @@ const LeftSideBar: React.FC = () => {
           dispatch(removeUser())
           dispatch(getUserById(me))
         }}
+        count={10}
       />
     </div>
   )
