@@ -57,6 +57,9 @@
     overflow: hidden;
     font-weight: 400;
     color: $grey-darken-3;
+    width: 420px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
   &__me-message {
@@ -98,5 +101,13 @@
       height: 9px;
       border-radius: 50%;
     }
+  }
+
+  &__me-text {
+    width: 390px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

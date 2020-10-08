@@ -8,7 +8,7 @@ const initialState: UsersState = {
   data: {
     online: ''
   },
-  loading: false,
+  loading: true,
   errors: ''
 }
 

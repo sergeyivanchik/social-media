@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 
+import './user.scss'
+
 import LeftSideBar from '../components/LeftSideBar'
 import Photo from '../components/Photo'
 import UserInfo from '../components/UserInfo'
@@ -39,7 +41,7 @@ const User: React.FC = () => {
       </div>
 
       <div className='wide-column'>
-        <div style={{boxShadow: '0 1px 0 0 #b2ebf2, 0 0 0 1px #b2ebf2'}}>
+        <div className='wide-column__container'>
           <UserInfo/>
           <Counts/>
         </div>

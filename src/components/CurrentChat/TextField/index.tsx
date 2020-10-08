@@ -36,15 +36,12 @@ const TextField: React.FC<IProps> = ({ userId }) => {
           typingMessage(me, userId || '')
         }}
       />
-      {
-        text &&
-        <i
-          className='material-icons text-field__send'
-          onClick={sendHandler}
-        >
-          send
-        </i>
-      }
+      <i
+        className='material-icons text-field__send'
+        onClick={sendHandler}
+      >
+        send
+      </i>
     </>
 
   );

@@ -74,7 +74,9 @@ const Chat: React.FC<IProps> = ({ text, user, date, me, fromUser, id }) => {
                     <div className='chat__me-avatar'>
                       <img src={avatar || emptyAvatar} alt='me ava'/>
                     </div>
-                    <span>{text}</span>
+                    <span className='chat__me-text'>
+                      {text}
+                    </span>
                   </>
               }
               </div>
