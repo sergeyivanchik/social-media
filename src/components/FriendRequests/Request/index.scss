@@ -74,5 +74,21 @@
       cursor: pointer;
       opacity: 0.6;
     }
+
+    &_not-add {
+      background-color: $white;
+      color: $cyan-accent-3;
+      margin-left: 10px;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 1;
+        background-color: $cyan-lighten-5;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
   }
 }

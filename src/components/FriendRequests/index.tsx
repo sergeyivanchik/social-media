@@ -4,7 +4,6 @@ import './index.scss'
 
 import { IUser } from '../../store/users/types'
 
-import Preloader from '../Preloader'
 import Request from './Request'
 import RequestTab from './RequestTab'
 
@@ -86,7 +85,7 @@ const FriendRequests: React.FC<IProps> = ({ incomingRequests, currentItem, outgo
         {
           currentTab === 1 &&
           incomingRequests?.map(elem => (
-            <Request user={elem} key={elem._id}/>
+            <Request user={elem} key={elem._id} currentTab={currentTab}/>
           ))
         }
         {

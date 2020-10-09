@@ -5,6 +5,8 @@ import { IUser } from './types'
 const user = (state: { users: { data: IUser } }): IUser  => state.users.data
 const currentUser = (state: { users: { me: IUser } }): IUser  => state.users.me
 const loading = (state: { users: {loading: boolean } }): boolean => state.users.loading
+const incomingFriendRequests = (state: { users: { incomingFriends: IUser[] } }): IUser[] => state.users.incomingFriends
+const outgoingFriendRequests = (state: { users: { outgoingFriends: IUser[] } }): IUser[] => state.users.outgoingFriends
 
 export const selectUser = createSelector(
   user,
@@ -17,13 +19,13 @@ export const selectCurrentUser = createSelector(
 )
 
 export const selectIncomingFriendRequests = createSelector(
-  user,
-  (currentUser): IUser[] => currentUser.incomingFriendRequests || []
+  incomingFriendRequests,
+  (incomingFriends): IUser[] => incomingFriends || []
 )
 
 export const selectOutgoingFriendRequests = createSelector(
-  user,
-  (currentUser): IUser[] => currentUser.outgoingFriendRequests || []
+  outgoingFriendRequests,
+  (outgoingFriends): IUser[] => outgoingFriends || []
 )
 
 type MainUserInfo = {

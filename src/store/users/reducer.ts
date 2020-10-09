@@ -8,12 +8,20 @@ const initialState: UsersState = {
   data: {
     online: ''
   },
+  incomingFriends: [],
+  outgoingFriends: [],
   loading: true,
   errors: ''
 }
 
 export const usersReducer: Reducer<UsersState> = (state = initialState, action) => {
   switch(action.type) {
+    case UsersActionTypes.GET_INCOMING_FRIENDS:
+      return { ...state, incomingFriends: action.payload }
+
+    case UsersActionTypes.GET_OUTGOING_FRIENDS:
+      return { ...state, outgoingFriends: action.payload }
+
     case UsersActionTypes.GET_USER_BY_ID:
       return { ...state, data: action.payload }
 

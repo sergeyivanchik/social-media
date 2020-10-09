@@ -16,6 +16,7 @@ const RightSideBar: React.FC<IProps> = ({ items, currentItem, setCurrentItem }) 
     <div className='right-side-bar'>
       {
         items.map((elem, index) => (
+          (elem.count > -1 || !elem.count) &&
           <RightSideBarItem
             title={elem?.title}
             key={index}

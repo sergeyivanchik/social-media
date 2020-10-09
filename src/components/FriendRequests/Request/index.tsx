@@ -8,14 +8,18 @@ import emptyAvatar from '../../../images/empty_avatar.png'
 import { IUser } from '../../../store/users/types'
 
 import { getUserAvatar } from '../../../helpers'
+import { unsubscribe, addFriend } from '../../../configs/socket'
 
 
 interface IProps {
   user: IUser
   outgoing?: boolean
+  currentTab?: number
 }
 
-const Request: React.FC<IProps> = ({ user, outgoing}) => {
+const Request: React.FC<IProps> = ({ user, outgoing, currentTab }) => {
+  const me = localStorage.getItem('me') || ''
+
   return (
     <>
       <div className='request'>
@@ -39,11 +43,25 @@ const Request: React.FC<IProps> = ({ user, outgoing}) => {
             </div>
           </Link>
 
-          <div className='request__button'>
+          <div className='request__buttons'>
+            <div
+              className='request__button'
+              onClick={() => outgoing
+                ? unsubscribe(me, user._id || '')
+                : addFriend(me, user._id || '')
+              }
+            >
+              {
+                !outgoing
+                  ? 'Добавить в друзья'
+                  : 'Отписаться'
+              }
+            </div>
             {
-              !outgoing
-                ? 'Добавить в друзья'
-                : 'Отписаться'
+              !outgoing && currentTab === 1 &&
+              <div className='request__button request__button_not-add'>
+                Не добавлять
+            </div>
             }
           </div>
         </div>

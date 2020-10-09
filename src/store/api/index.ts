@@ -9,7 +9,13 @@ axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? devURL : devUR
 export const usersApi = {
   fetchUserById(userId: string) {
     return axios.get<IUser>(`/users/user/${userId}`)
-  }
+  },
+  fetchIncomingFriends(userId: string) {
+    return axios.get<IUser[]>(`/users/incomingFriendRequests/${userId}`)
+  },
+  fetchOutgoingFriends(userId: string) {
+    return axios.get<IUser[]>(`/users/outgoingFriendRequests/${userId}`)
+  },
 }
 
 export const chatsApi = {

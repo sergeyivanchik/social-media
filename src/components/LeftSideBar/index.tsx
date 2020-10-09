@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import './index.scss'
@@ -6,7 +6,7 @@ import './index.scss'
 import SideBarItem from './SideBarItem'
 
 import { removeCurrentUserChats, getCurrentUserChats } from '../../store/chats/actions'
-import { removeUser, getUserById } from '../../store/users/actions'
+import { removeUser, getUserById, getIncomingFriends } from '../../store/users/actions'
 import { selectIncomingFriendRequests } from '../../store/users/selectors'
 
 
@@ -14,6 +14,10 @@ const LeftSideBar: React.FC = () => {
   const me = localStorage.getItem('me') || '/'
   const dispatch = useDispatch()
   const incomingFriendRequests = useSelector(selectIncomingFriendRequests)
+
+  useEffect(() => {
+    dispatch(getIncomingFriends())
+  }, [])
 
   return (
     <div className='left-side-bar'>

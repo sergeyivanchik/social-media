@@ -43,4 +43,10 @@ export const sendMessage = (data: Message) =>
 export const typingMessage = (from: string, to: string) =>
   socket.emit('typingMessage', {from, to})
 
+export const unsubscribe = (from: string, to: string) =>
+  socket.emit('unsubscribe', {from, to})
+
+export const addFriend = (from: string, to: string) =>
+  socket.emit('addFriend', {from, to})
+
 export { socketConfig }

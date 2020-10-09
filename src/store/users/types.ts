@@ -38,6 +38,8 @@ export interface IUser {
 
 export enum UsersActionTypes {
   GET_USER_BY_ID = '@@users/GET_USER_BY_ID',
+  GET_INCOMING_FRIENDS = '@@users/GET_INCOMING_FRIENDS',
+  GET_OUTGOING_FRIENDS = '@@users/GET_OUTGOING_FRIENDS',
   GET_CURRENT_USER = '@@users/GET_CURRENT_USER',
   REMOVE_USER = '@@users/REMOVE_USER',
   FETCH_FAILURE = '@@users/FETCH_FAILURE',
@@ -50,4 +52,6 @@ export interface UsersState {
   readonly data: IUser
   readonly errors?: string
   readonly loading: boolean
+  readonly incomingFriends?: IUser[]
+  readonly outgoingFriends?: IUser[]
 }

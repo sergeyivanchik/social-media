@@ -29,7 +29,9 @@ const Friends: React.FC = () => {
     },
     {
       title: 'Заявки в друзья',
-      count: incomingFriendRequests?.length
+      count: outgoingFriendRequests?.length
+        ? incomingFriendRequests?.length
+        : incomingFriendRequests?.length || -1
     }]
 
   useEffect(() => {
