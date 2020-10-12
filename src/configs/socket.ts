@@ -52,6 +52,9 @@ export const typingMessage = (from: string, to: string) =>
 export const unsubscribe = (from: string, to: string) =>
   socket.emit('unsubscribe', {from, to})
 
+export const dontAddFriend = (from: string, to: string) =>
+  socket.emit('dontAddFriend', {from, to})
+
 export const addFriend = (from: string, to: string) =>
   socket.emit('addFriend', {from, to})
 

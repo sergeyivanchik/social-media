@@ -38,6 +38,12 @@ const Friends: React.FC = () => {
     dispatch(getUserById(userId))
   }, [])
 
+  useEffect(() => {
+    if (!outgoingFriendRequests?.length && !incomingFriendRequests?.length) {
+      setCurrentItem(0)
+    }
+  }, [incomingFriendRequests, outgoingFriendRequests])
+
   return (
     <>
       <LeftSideBar/>

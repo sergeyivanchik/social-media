@@ -8,7 +8,7 @@ import emptyAvatar from '../../../images/empty_avatar.png'
 import { IUser } from '../../../store/users/types'
 
 import { getUserAvatar } from '../../../helpers'
-import { unsubscribe, addFriend } from '../../../configs/socket'
+import { unsubscribe, addFriend, dontAddFriend } from '../../../configs/socket'
 
 
 interface IProps {
@@ -59,7 +59,10 @@ const Request: React.FC<IProps> = ({ user, outgoing, currentTab }) => {
             </div>
             {
               !outgoing && currentTab === 1 &&
-              <div className='request__button request__button_not-add'>
+              <div
+                className='request__button request__button_not-add'
+                onClick={() => dontAddFriend(me, user._id || '')}
+              >
                 Не добавлять
             </div>
             }
