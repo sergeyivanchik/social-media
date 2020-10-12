@@ -2,6 +2,7 @@ import io from 'socket.io-client'
 
 import { devURL } from '../store/api'
 import { getCurrentUserChats, typing, getCurrenChatMessages } from '../store/chats/actions'
+import { getIncomingFriends, getOugoingFriends } from '../store/users/actions'
 
 
 const socket = io(devURL)
@@ -24,6 +25,11 @@ const socketConfig = (dispatch : any) => {
 
   socket.on('typingMessage', (data: string) => {
     dispatch(typing(data))
+  })
+
+  socket.on('unsubscribe', () => {
+    dispatch(getIncomingFriends())
+    dispatch(getOugoingFriends())
   })
 
   return socket

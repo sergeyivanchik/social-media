@@ -6,7 +6,12 @@ import './index.scss'
 import SideBarItem from './SideBarItem'
 
 import { removeCurrentUserChats, getCurrentUserChats } from '../../store/chats/actions'
-import { removeUser, getUserById, getIncomingFriends } from '../../store/users/actions'
+import {
+  removeUser,
+  getUserById,
+  getIncomingFriends,
+  getOugoingFriends
+} from '../../store/users/actions'
 import { selectIncomingFriendRequests } from '../../store/users/selectors'
 
 
@@ -17,6 +22,7 @@ const LeftSideBar: React.FC = () => {
 
   useEffect(() => {
     dispatch(getIncomingFriends())
+    dispatch(getOugoingFriends())
   }, [])
 
   return (

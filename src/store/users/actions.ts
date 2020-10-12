@@ -33,7 +33,7 @@ export const getIncomingFriends = () => {
   }
 }
 
-export const getIOugoingFriends = () => {
+export const getOugoingFriends = () => {
   return async (dispatch: Dispatch) => {
     try {
       const me = localStorage.getItem('me') || ''
